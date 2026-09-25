@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>A Little Surprise 💗</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital@0;1&display=swap');
+*{box-sizing:border-box}
+body{margin:0;background:#000;font-family:"DM Sans",sans-serif;color:#d8899f}
+.app{width:min(100vw,430px);height:100vh;min-height:650px;margin:auto;position:relative;overflow:hidden;background:#ffd8c8}
+.screen{position:absolute;inset:0;display:none;align-items:center;justify-content:center;padding:25px}
+.screen.active{display:flex}
+.card{width:88%;max-width:355px;background:rgba(255,255,255,.9);border-radius:22px;padding:25px 22px;box-shadow:0 12px 35px rgba(196,113,101,.16);text-align:center}
+.bear{width:120px;height:120px;object-fit:cover;object-position:center;border-radius:2px;background:#111;margin:0 auto 18px;display:block}
+.script{font-family:"Playfair Display",serif;font-style:italic;font-size:25px}
+.lockdots{display:flex;justify-content:center;gap:10px;margin:10px 0 17px}
+.dot{width:10px;height:10px;border-radius:50%;background:#f4c1cb}.dot.on{background:#ef87a4}
+.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:8px}
+.key{border:0;background:transparent;color:#d77f99;font-size:20px;padding:12px;border-radius:12px}
+.key:active{background:#ffe3e8}
+.bottom{display:flex;justify-content:space-between;margin-top:7px}
+.smallbtn{background:#f8b4bd;border:0;border-radius:14px;color:white;font-size:18px;width:72px;height:45px}
+.msg{height:18px;font-size:12px;color:#db7891}
+.questionCard{padding-top:28px;padding-bottom:28px}
+.yes{background:#f48fa8;color:#fff;border:0;border-radius:25px;padding:13px 34px;font-size:16px}
+.no{background:#f8c0c7;color:#fff;border:0;border-radius:25px;padding:13px 28px;font-size:16px}
+.noRow{position:relative;height:54px;margin-top:5px}
+#noBtn{position:absolute;left:50%;transform:translateX(35px)}
+.balloons{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-top:12px}
+.balloon{font-size:39px;cursor:pointer;transition:.25s}.balloon.pop{transform:scale(1.6);opacity:0;pointer-events:none}
+.letterCard{height:82%;overflow:auto;text-align:left;padding:25px 22px}
+.letterTitle{text-align:center;font-family:"Playfair Display",serif;font-style:italic;font-size:28px;margin-bottom:18px}
+.letter{font-size:14px;line-height:1.85;color:#ad7785;border-left:3px solid #ed91aa;padding-left:14px}
+.letter strong{color:#cf6d87}
+.openBtn{display:block;margin:20px auto 0;background:#f18fa8;color:#fff;border:0;border-radius:24px;padding:12px 34px}
+.heart{text-align:center;font-size:30px}
+.big{text-align:center;font-size:20px;font-weight:700;color:#cf6280}
+.confetti{position:absolute;inset:0;pointer-events:none}
+</style>
+</head>
+<body>
+<div class="app">
+
+<section id="lock" class="screen active">
+<div class="card">
+<img class="bear" src="romantic_assets/bear.png" alt="">
+<div class="script">Locked</div>
+<div style="font-size:12px;margin-top:5px">Enter the 6-digit passcode</div>
+<div class="lockdots" id="dots"></div>
+<div class="msg" id="lockMsg"></div>
+<div class="keypad" id="keypad"></div>
+<div class="bottom"><button class="smallbtn" onclick="backspace()">⌫</button><button class="smallbtn" onclick="clearPass()">×</button></div>
+</div>
+</section>
+
+<section id="love" class="screen">
+<div class="card questionCard">
+<img class="bear" src="romantic_assets/bear.png" alt="">
+<div style="font-family:'Playfair Display',serif;font-style:italic;font-size:19px;margin-bottom:13px">Do you love me? 💗</div>
+<div style="font-size:12px;margin-bottom:15px">Yes is the only option 🥺</div>
+<button class="yes" onclick="show('balloons')">Yes 💗</button>
+<div class="noRow"><button class="no" id="noBtn" onclick="moveNo()">No 🙈</button></div>
+</div>
+</section>
+
+<section id="balloons" class="screen">
+<div class="card">
+<div class="script" style="font-size:23px">A little surprise 🎀</div>
+<p style="font-size:13px">Pop all 15 balloons to open your letter 💗</p>
+<div class="balloons" id="balloonBox"></div>
+<p id="left" style="font-size:12px"></p>
+</div>
+</section>
+
+<section id="letter" class="screen">
+<div class="card letterCard">
+<div class="letterTitle">A Letter For You 💌</div>
+<div class="letter">
+<p><strong>My love, 💗</strong></p>
+<p>Happy Birthday my husband! 🎂🌷 Today is a very special day because it is the birthday of someone who is incredibly precious to my heart.</p>
+<p>I pray that your life is always filled with happiness, peace, success and beautiful moments. May every dream you have come true, and may Allah always keep you safe, smiling and surrounded by people who truly care about you. 🤲🏻</p>
+<p>I want you to know that you are very special to me. Sometimes words are not enough to explain how much a person means to us, but I still want to say that having you in my life makes ordinary moments feel a little more beautiful. 🥺💗</p>
+<p>On your birthday, I wish you a year full of new memories, endless smiles, success in everything you do, and lots of reasons to be happy. I hope every difficult day becomes easier and every good day becomes a beautiful memory that you can keep forever. 🌸</p>
+<p>Thank you for being such a precious part of my life. I hope we always keep making cute memories together, laughing over little things, supporting each other and celebrating all the beautiful moments that come our way. 🫣💕</p>
+<p>No matter how long this letter is, it still cannot say everything that is in my heart. So today I just want to remind you: you are loved, you are special, and you deserve all the happiness in the world. 🎀</p>
+<p>I will always pray for your happiness and for beautiful days ahead. May this birthday be the beginning of one of the happiest chapters of your life. 💗✨</p>
+<p><strong>I will never leave you. 💗</strong></p>
+<p class="big">I love you my husband 💕</p>
+<p class="big">Ummmmmmmmmah 😘💗</p>
+</div>
+<div class="heart">🌸💗🌸</div>
+</div>
+</section>
+</div>
+
+<script>
+let entered="", popped=0;
+const pass="102026";
+const dots=document.getElementById("dots");
+for(let i=0;i<6;i++){let d=document.createElement("span");d.className="dot";d.id="d"+i;dots.appendChild(d)}
+const keys=[1,2,3,4,5,6,7,8,9,"",0,""];
+const kp=document.getElementById("keypad");
+keys.forEach(k=>{let b=document.createElement("button");b.className="key";b.textContent=k;b.onclick=()=>{if(k!==""&&entered.length<6){entered+=k;updateDots();if(entered.length===6)setTimeout(check,180)}};kp.appendChild(b)});
+function updateDots(){for(let i=0;i<6;i++)document.getElementById("d"+i).classList.toggle("on",i<entered.length)}
+function backspace(){entered=entered.slice(0,-1);updateDots()}
+function clearPass(){entered="";updateDots()}
+function check(){if(entered===pass)show("love");else{document.getElementById("lockMsg").textContent="Wrong passcode 💗";setTimeout(()=>{entered="";updateDots();document.getElementById("lockMsg").textContent=""},700)}}
+function show(id){document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));document.getElementById(id).classList.add("active");if(id==="balloons")makeBalloons()}
+function moveNo(){const b=document.getElementById("noBtn");b.style.left=(Math.random()*65+5)+"%";b.style.transform="translateX(0)"}
+function makeBalloons(){const box=document.getElementById("balloonBox");box.innerHTML="";popped=0;for(let i=0;i<15;i++){let b=document.createElement("span");b.className="balloon";b.textContent="🎈";b.onclick=()=>{if(b.classList.contains("pop"))return;b.classList.add("pop");popped++;document.getElementById("left").textContent=(15-popped)+" balloons left 💗";if(popped===15)setTimeout(()=>show("letter"),500)};box.appendChild(b)}document.getElementById("left").textContent="15 balloons left 💗"}
+</script>
+</body>
+</html>
