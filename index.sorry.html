@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorry, My Husband 💗</title>
+<style>
+:root{--pink:#f56f9d;--deep:#9b315d;--pale:#fff1f6;--line:#f6b6cb}
+*{box-sizing:border-box}
+body{margin:0;font-family:Georgia,'Times New Roman',serif;color:var(--deep);background:linear-gradient(135deg,#ffe8f0,#fff8fb,#ffdce9);text-align:center}
+section{min-height:100vh;padding:32px 18px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.card{width:min(680px,100%);padding:30px 22px;border:1px solid #f7b8cd;border-radius:25px;background:#ffffffc9;box-shadow:0 12px 35px #d86d9424}
+h1{font-size:clamp(2rem,7vw,3.2rem);margin:8px 0 14px;font-style:italic}
+h2{font-size:clamp(1.6rem,5vw,2.2rem);font-style:italic}
+p{font-size:1.08rem;line-height:1.8}
+.bear{font-size:5rem;filter:drop-shadow(0 5px 2px #f7bdd0)}
+.heart{color:#ec5b91}
+button{border:0;border-radius:30px;padding:13px 27px;margin:8px;background:linear-gradient(120deg,#ff8fb2,#e64f87);color:white;font-size:1rem;font-weight:bold;box-shadow:0 4px 0 #c94b79;cursor:pointer}
+button:active{transform:translateY(2px);box-shadow:0 2px 0 #c94b79}
+input{width:48px;height:48px;text-align:center;border:2px solid var(--line);border-radius:10px;font-size:1.3rem;color:var(--deep);background:#fff8fb;margin:3px}
+.hidden{display:none!important}
+.small{font-size:.9rem}
+.balloons{display:grid;grid-template-columns:repeat(5,minmax(42px,1fr));gap:12px;max-width:520px;width:100%;margin:22px auto}
+.balloon{font-size:2.8rem;cursor:pointer;transition:transform .2s;user-select:none}
+.balloon:hover{transform:translateY(-5px) scale(1.08)}
+.balloon.popped{opacity:.22;transform:scale(.55);pointer-events:none}
+.envelope{font-size:7rem;cursor:pointer;animation:float 2s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-9px)}}
+.letter{max-width:650px;text-align:left;background:#fff9ef;border:2px dashed #f0a9bf;border-radius:12px;padding:24px;line-height:1.9;box-shadow:0 8px 22px #c65c8020}
+.sparkles{position:absolute;top:14px;left:14px;right:14px;pointer-events:none;opacity:.65;letter-spacing:12px}
+footer{padding:18px;font-size:.85rem}
+@media(max-width:420px){.balloons{gap:6px}.balloon{font-size:2.25rem}.card{padding:25px 14px}}
+</style>
+</head>
+<body>
+<section id="welcome">
+  <div class="sparkles">♡ ✿ ♡ ✧ ♡ ✿ ♡</div>
+  <div class="card">
+    <div class="bear">🧸💗</div>
+    <div class="small">A little surprise, made with love</div>
+    <h1>Sorry, My Husband <span class="heart">♡</span></h1>
+    <p>For the one who means so much to me.<br>Can you open my little heart?</p>
+    <button onclick="show('lock')">Open My Heart 💌</button>
+  </div>
+</section>
+<section id="lock" class="hidden">
+  <div class="card">
+    <div class="bear">🧸🔐</div><h2>Our Little Secret</h2>
+    <p>Enter the special code to unlock my heart ♡</p>
+    <div id="codeboxes"><input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric"></div>
+    <p id="error" class="small"></p><button onclick="unlock()">Unlock 💗</button>
+  </div>
+</section>
+<section id="question" class="hidden">
+  <div class="card"><div class="bear">🧸💕</div><h2>Do you still love me?</h2><p>Even when I make mistakes, my heart is always full of love for you. ♡</p><button onclick="show('envelope')">Yes, always! 💗</button><button onclick="show('envelope')">Of course ❤️</button></div>
+</section>
+<section id="envelope" class="hidden">
+  <div class="card"><div class="bear">🧸🌷</div><h2>For You, My Love</h2><div class="envelope" onclick="show('letter')" role="button" aria-label="Open letter">💌</div><p>Tap the envelope to read my letter ♡</p></div>
+</section>
+<section id="letter" class="hidden">
+  <div class="letter">
+    <div style="text-align:center" class="bear">🧸💗</div>
+    <h2 style="text-align:center">I'm Sorry, My Husband ♡</h2>
+    <p>My love,</p>
+    <p>I’m truly sorry if I hurt you or made your heart feel heavy. You mean so much to me, and the last thing I ever want is for my words or actions to bring sadness between us.</p>
+    <p>You are so precious to me. I know that love is not only about happy moments; it is also about listening, understanding, saying sorry, and trying to do better. I want to learn from my mistakes and treat your heart with more care.</p>
+    <p>Please forgive me, jaan. I may not always find the perfect words, but my feelings for you are sincere. I want us to talk gently, understand each other, and keep choosing kindness even when things are difficult.</p>
+    <p>Thank you for being part of my life and for holding such a special place in my heart. I hope this little surprise makes you smile. Sending you the biggest hug and all my love. 🧸🌷</p>
+    <p style="text-align:center;font-weight:bold;font-style:italic">I’m sorry, my husband. I love you so much. ♡<br>Forever and always 💗</p>
+    <div style="text-align:center"><button onclick="show('voice')">Hear My Voice 🎙️</button></div>
+  </div>
+</section>
+
+<section id="voice" class="hidden">
+  <div class="card">
+    <div class="bear">🧸🎀</div>
+    <h2>My Voice for You ♡</h2>
+    <p>I wanted you to hear this from my own voice, jaan. 💗</p>
+    <p class="small">Record your voice on your phone, then choose the audio recording below.</p>
+    <label for="voiceFile" style="display:inline-block;background:#fff0f6;border:1px solid #f6b6cb;border-radius:18px;padding:13px 18px;cursor:pointer;margin:8px;color:#9b315d;font-weight:bold">Choose My Voice 🎙️</label>
+    <input id="voiceFile" type="file" accept="audio/*" style="display:block;max-width:100%;margin:12px auto">
+    <audio id="voicePlayer" controls class="hidden" style="width:100%;margin:18px 0"></audio>
+    <p id="voiceHint" class="small">Your recording will play here after you choose it.</p>
+    <button onclick="show('ending')">With Love, Always 💗</button>
+  </div>
+</section>
+
+<section id="ending" class="hidden">
+  <div class="card"><div class="bear">🧸💞</div><h1>I Love You,<br>My Husband</h1><p>May our hearts always find their way back to each other—with love, patience, and understanding.</p><h2>Forever & Always ♡</h2><p>I'm sorry, jaan. Ummmaah! 😘💗</p><button onclick="show('welcome')">Start Again ♡</button></div>
+</section>
+<footer>Made with love, hearts, and Bubu Bear ♡</footer>
+<script>
+function show(id){document.querySelectorAll('section').forEach(s=>s.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');window.scrollTo(0,0)}
+document.querySelectorAll('#codeboxes input').forEach((el,i,arr)=>{el.addEventListener('input',()=>{el.value=el.value.replace(/[^0-9]/g,'').slice(0,1);if(el.value&&arr[i+1])arr[i+1].focus()});el.addEventListener('keydown',e=>{if(e.key==='Backspace'&&!el.value&&arr[i-1])arr[i-1].focus()})});
+function unlock(){let code=[...document.querySelectorAll('#codeboxes input')].map(x=>x.value).join('');if(code==='200124'){show('question')}else{document.getElementById('error').textContent='Try again, my love 💗';}}
+
+const voiceFile=document.getElementById('voiceFile');
+voiceFile.addEventListener('change',function(){
+  const file=this.files && this.files[0];
+  if(!file)return;
+  const player=document.getElementById('voicePlayer');
+  player.src=URL.createObjectURL(file);
+  player.classList.remove('hidden');
+  document.getElementById('voiceHint').textContent='Your voice is ready to play here 💗';
+});
+</script>
+</body>
+</html>
